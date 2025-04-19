@@ -1,0 +1,134 @@
+.vertical-timeline {
+
+    &-item {
+
+
+        &-content {}
+
+        &-icon {
+            height: fit-content;
+            position: relative;
+            //     &-item {
+            //   width: 100px;
+            //   height: 100px;
+            //     }
+
+        }
+
+
+        &:nth-child(even) &-icon-item {
+            left: 30%;
+            position: absolute;
+            top: 50%;
+            z-index: 3;
+            transform: translate(50%, -50%);
+        }
+
+        &:nth-child(odd) &-icon-item {
+            right: 50%;
+            left: auto;
+            position: absolute;
+            top: 50%;
+            transform: translate(50%, -50%);
+        }
+
+
+        &:nth-child(odd) &-icon::after {
+            left: 0;
+            right: auto;
+        }
+
+
+        &:nth-child(even) &-icon::after {
+            right: 0;
+            left: auto;
+        }
+
+        &:nth-child(odd) &-icon::after {
+            left: 0;
+            right: auto;
+        }
+
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 5px;
+        background-color: #4bc5db;
+        transform: translate(-50%);
+        z-index: 0;
+    }
+}
+
+.custom-icon-size {
+    width: clamp(2rem, 7rem, 4rem);
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .vertical-timeline {
+
+        &-item {
+            flex-direction: column-reverse !important;
+
+            &-content {
+                padding: 20px !important;
+                width: 100% !important;
+            }
+
+            &-icon {
+                width: 100% !important;
+
+            }
+
+            &-icon-item {
+                z-index: 3;
+                right: 30% !important;
+                left: 0;
+                top: 40% !important;
+                transition: all ease-in-out 0.3s;
+
+            }
+
+
+            &:nth-child(odd) &-icon::after {
+                left: 0;
+                right: auto;
+            }
+
+
+            &:nth-child(even) &-icon::after {
+                right: 0;
+                left: auto;
+            }
+
+            &:nth-child(odd) &-icon::after {
+                left: 0;
+                right: auto;
+            }
+
+        }
+
+        &::before {
+            left: 0;
+        }
+    }
+
+    .custom-icon-size {
+        width: 3rem;
+        z-index: 5;
+    }
+
+
+    .dialogue-icon {
+        width: 100px !important;
+        transform: scaleX(1) rotate(-45deg) !important;
+        z-index: 1;
+        transition: all ease-in-out 0.3s;
+    }
+}
