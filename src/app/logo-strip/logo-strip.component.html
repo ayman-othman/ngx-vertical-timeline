@@ -1,0 +1,5 @@
+<div class="logo-strip d-flex gap-5 py-5">
+  @for (logo of list(); track $index) {
+  <img [src]="logo.url" width="170"  [alt]="logo.name" class="client-logo" />
+  }
+</div>
